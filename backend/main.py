@@ -1,10 +1,16 @@
+from pathlib import Path
+
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+
 app = FastAPI()
 
+frontend_dir = Path(__file__).resolve().parent.parent / "frontend"
+app.mount("/static", StaticFiles(directory=str(frontend_dir)), name="static")
 
 
 @app.get("/add")
-def predict_price(area:float, bedrooms:int, location:str) -> float:
+def predict_price(area: float, bedrooms: int, location: str) -> float:
     base_price = 500000000
     price_per_sqft = 15000000  # Price per square foot
     bedroom_multiplier = 50000000  # Additional price per bedroom
