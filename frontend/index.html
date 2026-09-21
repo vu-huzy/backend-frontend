@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Items Management</title>
+  </head>
+  <body>
+    <main>
+      <div id="form-create">
+        <h3>Add new item</h3>
+        <form id="item-form" action="">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" />
+
+          <label for="price">Price</label>
+          <input type="number" min="0" id="price" name="price" />
+
+          <div>
+            <button type="submit">Add</button>
+            <button type="button" id="cancel-button">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <button type="button" id="fetch-button" onclick="fetchData()">Fetch data</button>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="items-body"></tbody>
+        </table>
+        <p id="status"></p>
+      </div>
+    </main>
+
+    <script src="http://127.0.0.1:8000/static/app.js"></script>
+  </body>
+</html>
